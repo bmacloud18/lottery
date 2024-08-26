@@ -1,5 +1,5 @@
 const colors = [
-    { name: 'red', hex: '#b91c1c'}, 
+    {name: 'red', hex: '#b91c1c'}, 
     {name: 'blue', hex: '#0b46e6'}, 
     {name: 'black', hex: '#262626'},
     {name: 'green', hex: '#14532d'},
