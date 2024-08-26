@@ -14,11 +14,11 @@ export default function Popup({
     onSubmit: any,
     currentItems: Item[]
 }) {
+    const [itemName, setItemName] = useState('');
     if (!visible) {
         return null;
     }
 
-    const [itemName, setItemName] = useState('');
 
     return (
         <div className="border-solid border-4 fixed z-50 bg-grey bg-opacity-100 flex justify-center items-center">
