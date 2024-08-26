@@ -44,7 +44,7 @@ export default function Home() {
         setItems(sampleItems);
         setId(items.length - 1);
       }
-  }, []);
+  }, [items]);
 
   const startAnimation = () => {
     const angle = Math.random() * 360;
