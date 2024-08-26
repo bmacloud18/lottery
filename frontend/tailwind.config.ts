@@ -29,9 +29,14 @@ const config: Config = {
       'green': '#14532d',
       'red': '#b91c1c',
       'black': '#262626',
-      'buttonwhite': '#d4d4d8',
-      'background': '#67736f',
-      'yellow': '#d4d00d'
+      'yellow': '#d4d00d',
+      'blue': '#0b46e6',
+      'orange': '#e37f0e',
+      'purple': '#9a19e0',
+      'cyan': '#2da6e3',
+      'pink': '#f211cd',
+      'lime': '#27de16',
+      'indigo': '#49318c'
     },
   },
   plugins: [],
