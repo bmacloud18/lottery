@@ -1,7 +1,7 @@
 const samples = [
-    {id: 1, name: 'benjamin'},
-    {id: 2, name: 'justin'},
-    {id: 3, name: 'ben'}
+    {id: 0, name: 'benjamin'},
+    {id: 1, name: 'justin'},
+    {id: 2, name: 'ben'}
 ];
 
 

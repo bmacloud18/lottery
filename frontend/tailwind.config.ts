@@ -12,15 +12,6 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-      animation: {
-        'loop-scroll': 'loop-scroll 15s linear infinite',
-      },
-      keyframes: {
-        'loop-scroll': {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(50%)' },
-        }
       }
     },
     colors: {
@@ -36,7 +27,9 @@ const config: Config = {
       'cyan': '#2da6e3',
       'pink': '#f211cd',
       'lime': '#27de16',
-      'indigo': '#49318c'
+      'indigo': '#49318c',
+      'buttonwhite': '#d4d4d8',
+      'grey': '#69605f'
     },
   },
   plugins: [],

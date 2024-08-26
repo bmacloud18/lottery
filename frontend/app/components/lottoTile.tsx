@@ -1,13 +1,18 @@
-import Tile from "@/app/interfaces/item";
+import Item from "@/app/interfaces/item";
 
 export default function LottoTile({
-    item
+    item,
+    remove
 }:  {
-    item:Tile
+    item:Item,
+    remove: any
 }) {
     return (
-        <div className="border-solid border-2 border-black p-12 rounded-2xl min-w-48 flex flex-col justify-center gap-6 m-2">
-            <span className="text-center text-xl">{item.name}</span>
+        <div key={item.id} className="mb-1 border-solid border-2 border-black rounded-xl w-full p-2 overflow-hidden flex flex-row gap-2 justify-between">
+            <span className="text-center text-base">{item.name}</span>
+            <button onClick={remove}>
+                <img src="/deletepng.png" alt="delete" className="size-2"/>
+            </button>
         </div>
     )
 }
