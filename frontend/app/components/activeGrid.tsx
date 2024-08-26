@@ -10,7 +10,7 @@ export default function Grid({
     removeItem: any
 }) {
     const tiles = items.map((item: Item) => {
-        return <Tile item={item} remove={() => removeItem(item.id)}/>
+        return <Tile key={item.id} item={item} remove={() => removeItem(item.id)}/>
     });
 
     return (

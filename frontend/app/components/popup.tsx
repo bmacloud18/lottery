@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { MouseEventHandler } from "react";
 import Item from "@/app/interfaces/item";
 
-export default function popup({
+export default function Popup({
     visible,
     onClose,
     onSubmit,
