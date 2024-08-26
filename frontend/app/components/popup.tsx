@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { MouseEventHandler } from "react";
 import Item from "@/app/interfaces/item";
@@ -18,7 +19,6 @@ export default function popup({
     }
 
     const [itemName, setItemName] = useState('');
-    const [items, setItems] = useState<Item[]>();
 
     return (
         <div className="border-solid border-4 fixed z-50 bg-grey bg-opacity-100 flex justify-center items-center">
