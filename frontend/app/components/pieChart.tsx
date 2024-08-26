@@ -50,7 +50,7 @@ export default function PieChartWithCustomizedLabel({
                 startAngle: p.startAngle,
                 endAngle: p.endAngle,
             })
-        );
+        ).filter((arc): arc is string => arc !== null);;
     }, [radius, pie]);
 
 
