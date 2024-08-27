@@ -7,12 +7,14 @@ export default function Popup({
     visible,
     onClose,
     onSubmit,
-    currentItems
+    currentItems,
+    selected
 }: {
     visible: boolean,
     onClose: MouseEventHandler,
     onSubmit: any,
-    currentItems: Item[]
+    currentItems: Item[],
+    selected: string
 }) {
     const [itemName, setItemName] = useState('');
     if (!visible) {
@@ -20,7 +22,7 @@ export default function Popup({
     }
 
 
-    return (
+    return onSubmit ? (
         <div className="border-solid border-4 fixed z-50 bg-grey bg-opacity-100 flex justify-center items-center">
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h2 className="text-sm font-semibold">Add Items</h2>
@@ -40,6 +42,20 @@ export default function Popup({
                     </button>
                     <button type="button" onClick={() => onSubmit(itemName)} className="bg-buttonwhite border-solid border rounded">
                         Add Item
+                    </button>
+                </div>
+            </div>
+        </div>
+    ) : (
+        <div className="border-solid border-4 fixed z-50 bg-grey bg-opacity-100 flex justify-center items-center">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-sm font-semibold">Congratulations!!</h2>
+                <div className="mb-4">
+                    <span>{selected}</span>
+                </div>
+                <div className="flex justify-end gap-1">
+                    <button type="button" onClick={onClose} className="bg-buttonwhite border-solid border rounded">
+                        Cancel
                     </button>
                 </div>
             </div>
