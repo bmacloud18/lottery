@@ -1,9 +1,6 @@
 import { useMemo } from "react";
-import * as d3 from "d3";            
-import { DefaultizedPieValueType } from '@mui/x-charts/models';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
+import * as d3 from "d3";
 import Item from "@/app/interfaces/item";
-import colors from "@/app/util/colors";
 
 
 
@@ -29,10 +26,17 @@ export default function PieChartWithCustomizedLabel({
     animation: React.CSSProperties
 }) {
     const n = items.length;
+    for (let i = 0; i < n; i++)
+    {
+      items[i].id = i;
+    }
     const arclength = 360 / n;
     const data = items.map(convertData);
     const radius = Math.min(width, height) / 2 - MARGIN;
 
+    //this function helps set the startDegree to the proper relative number
+    //this is necessary because the wheel spins counter clockwise while the degrees of the arc are calculated clockwise
+    //the start degree is used to determine where the spinner has landed, i.e. who wins
     const reverseDegrees = (items: Item[]) => {
       let i = 0;
       let j = items.length - 1;
@@ -63,7 +67,7 @@ export default function PieChartWithCustomizedLabel({
             items[i].startDegree = ((p.endAngle) * (180 / Math.PI) + (arclength * (n - 1))) % 360;
             return {
               path: path ?? '',
-              color: colors[i].hex,
+              color: items[i].color,
               item: data[i]
             }
         });
@@ -81,7 +85,7 @@ export default function PieChartWithCustomizedLabel({
         <svg width={width} height={height} className={"flex flex-col"} style={animation}>
           <g transform={`translate(${width / 2}, ${height / 2})`}>
             {arcs.map((arc, i) => {
-              return <path key={i} d={arc.path} fill={colors[i].hex} />;
+              return <path key={i} d={arc.path} fill={items[i].color} />;
             })}
           </g>
         </svg>

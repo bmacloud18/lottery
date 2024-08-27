@@ -38,7 +38,7 @@ export default function Popup({
                 </div>
                 <div className="flex justify-end gap-1">
                     <button type="button" onClick={onClose} className="bg-buttonwhite border-solid border rounded">
-                        Cancel
+                        Exit
                     </button>
                     <button type="button" onClick={() => onSubmit(itemName)} className="bg-buttonwhite border-solid border rounded">
                         Add Item
@@ -55,7 +55,7 @@ export default function Popup({
                 </div>
                 <div className="flex justify-end gap-1">
                     <button type="button" onClick={onClose} className="bg-buttonwhite border-solid border rounded">
-                        Cancel
+                        Exit
                     </button>
                 </div>
             </div>

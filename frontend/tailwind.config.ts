@@ -29,7 +29,9 @@ const config: Config = {
       'lime': '#27de16',
       'indigo': '#49318c',
       'buttonwhite': '#d4d4d8',
-      'grey': '#69605f'
+      'grey': '#69605f',
+      'buttongreen': '#1ed91e',
+      'buttonred': '#f00a0a'
     },
   },
   plugins: [],
