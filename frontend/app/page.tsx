@@ -5,6 +5,7 @@ import Wheel from "@/app/components/pieChart";
 import Item from "@/app/interfaces/item";
 import Grid from "@/app/components/tileGrid";
 import Popup from "@/app/components/popup";
+import Button from "@/app/components/button";
 import sampleColors from "@/app/util/colors";
 
 export default function Home() {
@@ -20,7 +21,7 @@ export default function Home() {
   const [colors, setColors] = useState<string[]>([]);
 
   const [selected, setSelected] = useState<string>('');
-  const [replacement, setReplacement] = useState<boolean>(false);
+  const [removal, setRemoval] = useState<boolean>(false);
   const [disabled, setDisabled] = useState(false);
   const timeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -80,23 +81,19 @@ export default function Home() {
     }
   }
 
-  const changeReplacement = () => {
-    if (replacement) {
-      setReplacement(false);
+  const changeRemoval = () => {
+    if (removal) {
+      setRemoval(false);
     }
     else {
-      setReplacement(true);
+      setRemoval(true);
     }
   }
 
-  const replacementButton = replacement ? (
-    <button onClick={(changeReplacement)} className="border-solid border w-28 bg-buttongreen text-white rounded hover:bg-buttonwhite justify-self-end">
-      Replacement On
-    </button>
+  const removalButton = removal ? (
+    <Button onClick={changeRemoval} text={'Removal On'} disabled={false}></Button>
   ) : (
-    <button onClick={(changeReplacement)} className="border-solid border w-28 bg-buttonred text-white rounded hover:bg-buttonwhite justify-self-end">
-      Replacement Off
-    </button>
+    <Button onClick={changeRemoval} text={'Removal Off'} disabled={false}></Button>
   )
 
   useEffect(() => {
@@ -116,7 +113,7 @@ export default function Home() {
     // Calculate the final index after the spin completes
     timeout.current = setTimeout(() => {
       setSelected(items[idx].name);
-      if (replacement) {
+      if (removal) {
         removeItem(idx);
         addReplaced(items[idx]);
       }
@@ -152,14 +149,12 @@ export default function Home() {
 
         <Grid removeItem={(removeItem)} items={items}></Grid>
 
-        <div className="relative flex flex-col overflow-hidden border-solid border-2 justify-center align-center">
+        <div className="relative flex flex-col overflow-hidden border-solid border-2 items-center p-2">
           <div className="flex flex-row w-fit justify-center align-center pointer-events-none">
             <Wheel animation={animation} items={items}></Wheel>
           </div>
-          <button disabled={disabled} onClick={startAnimation} className="border-solid border mt-4 mb-2 p-2 w-fit self-center bg-buttonwhite text-white rounded hover:bg-yellow">
-            Spin da Wheel
-          </button>
-          <div className="absolute top-0 left-1/2 h-1/5 w-0.5 bg-yellow transform -translate-x-1/2 pointer-events-none"></div>
+          <Button onClick={startAnimation} text={'Spin Wheel'} disabled={disabled}></Button>
+          <div className="absolute top-0 left-1/2 h-1/5 w-0.5 bg-yellow transform -translate-x-1/2"></div>
         </div>
 
         <Grid removeItem={(undefined)} items={replaced}></Grid>
@@ -169,13 +164,9 @@ export default function Home() {
       
 
       <div className="flex flex-row m-4 self-end gap-2">
-        {replacementButton}
-        <button onClick={() => setPopup(true)} className="border-solid border w-28 bg-buttonwhite text-white rounded hover:bg-yellow justify-self-end">
-          Add Items
-        </button>
-        <button onClick={restart} className="border-solid border w-28 bg-buttonwhite text-white rounded hover:bg-yellow justify-self-end">
-          Restart
-        </button>
+        {removalButton}
+        <Button onClick={() => setPopup(true)} text={'Add Items'} disabled={false}></Button>
+        <Button onClick={restart} text={'Restart'} disabled={false}></Button>
       </div>
 
     </main>
