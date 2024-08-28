@@ -12,7 +12,6 @@ export default function Home() {
 
   const [items, setItems] = useState<Item[]>([]);
   const [replaced, setReplaced] = useState<Item[]>([]);
-  const [tiles, setTiles] = useState<React.ReactNode[]>([]);
   const [id, setId] = useState<number>(0);
   const [popup, setPopup] = useState<boolean>(false);
 
