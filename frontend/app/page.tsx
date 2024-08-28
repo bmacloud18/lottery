@@ -54,15 +54,17 @@ export default function Home() {
   }
 
   const addItem = (name: string) => {
-    const randomColor = getColor();
-    const item = {
-      id: id + 1,
-      name: name,
-      startDegree: 0,
-      color: randomColor
+    if (items.length < 36) {
+      const randomColor = getColor();
+      const item = {
+        id: id + 1,
+        name: name,
+        startDegree: 0,
+        color: randomColor
+      }
+      setItems([...items, item]);
+      setId(id + 1);
     }
-    setItems([...items, item]);
-    setId(id + 1);
   }
 
   const addReplaced = (item: Item) => {
@@ -73,6 +75,8 @@ export default function Home() {
     if (items.length > 1) {
       const newArray = items.filter((item, idx) => idx !== id);
       setItems(newArray);
+      const newCol = items[id].color;
+      setColors([...colors, newCol]);
     }
   }
 
