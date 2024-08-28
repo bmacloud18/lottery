@@ -161,8 +161,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col justify-center gap-4 items-center">
 
-      <Popup visible={popup} onSubmit={addItem} onClose={() => setPopup(false)} currentItems={items} selected={''}></Popup>
-      <Popup visible={selected !== ''} onSubmit={null} onClose={() => setSelected('')} currentItems={items} selected={selected}></Popup>
+      <Popup visible={popup} onSubmit={addItem} onClose={() => setPopup(false)} selected={''}></Popup>
+      <Popup visible={selected !== ''} onSubmit={null} onClose={() => setSelected('')} selected={selected}></Popup>
       <div className="flex flex-row justify-around items-center gap-4">
 
         <Grid removeItem={(removeItem)} items={items}></Grid>
