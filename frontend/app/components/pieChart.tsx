@@ -10,6 +10,7 @@ type DataItem = {
     value: number;
   };
 
+  //converts items for the d3 pie chart
 const convertData = (item: Item) => {
     return {name: `${item.name}`, value: 100}
 }
@@ -18,6 +19,10 @@ const MARGIN = 30;
 const width = 600;
 const height = 600;
 
+
+//not an expert with d3, made some additions to this pie chart guide from react graph gallery
+//https://www.react-graph-gallery.com/pie-plot
+//only thing missing is a nice transition animation on removal, may look into in the future
 export default function PieChartWithCustomizedLabel({
     items,
     animation
@@ -26,6 +31,8 @@ export default function PieChartWithCustomizedLabel({
     animation: React.CSSProperties
 }) {
     const n = items.length;
+    //resets id values since indices change after removal and ids are used in a few places to access the items array
+    //changed the way colors are accessed so that this works without scrambling colors each spin
     for (let i = 0; i < n; i++)
     {
       items[i].id = i;

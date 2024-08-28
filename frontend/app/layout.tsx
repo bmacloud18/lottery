@@ -1,3 +1,5 @@
+//nothing special here, only real function is to set font family
+//may add a more in depth web manifest later
 import type { Metadata } from "next";
 import Head from "next/head";
 import { Roboto_Mono } from "next/font/google";

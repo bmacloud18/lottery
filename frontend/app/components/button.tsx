@@ -10,6 +10,7 @@ export default function Button({
     disabled: boolean
 }) {
     
+    //returns a uniform button to perform various operations
     return (
         <button onClick={onClick} className="border-solid border w-28 h-12 bg-buttonwhite text-white rounded hover:bg-yellow justify-self-end">
           {text}

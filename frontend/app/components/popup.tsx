@@ -7,13 +7,11 @@ export default function Popup({
     visible,
     onClose,
     onSubmit,
-    currentItems,
     selected
 }: {
     visible: boolean,
     onClose: MouseEventHandler,
     onSubmit: any,
-    currentItems: Item[],
     selected: string
 }) {
     const [itemName, setItemName] = useState('');
@@ -21,7 +19,8 @@ export default function Popup({
         return null;
     }
 
-
+    //returns two different pop ups based on whether or not a submit function is passed
+    //popup 1 is for adding items and popup 2 is for the congratulations/selection screen post-spin
     return onSubmit ? (
         <div className="border-solid border-4 fixed z-50 bg-grey bg-opacity-100 flex justify-center items-center">
             <div className="bg-white p-6 rounded-lg shadow-lg">

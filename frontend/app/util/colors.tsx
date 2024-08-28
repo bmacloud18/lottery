@@ -1,3 +1,4 @@
+//default list of colors I thought looked cool
 const colors = [
     '#14532d',
     '#9a19e0',
