@@ -24,7 +24,7 @@ export default function Grid({
     const a = splitArray(items, chunkSize);
     
 
-    return (
+    return items.length > 0 ? (
         <div className="overflow-hidden flex flex-row gap-2 mt-4">
             {a.map((chunk, index) => (
                 <div key={index} className="overflow-hidden mb-4 flex flex-row">
@@ -39,6 +39,14 @@ export default function Grid({
                     </div>
                 </div>
             ))}
+        </div>
+    ) : (
+        <div className="visibility-hidden overflow-hidden flex flex-row gap-2 mt-4">
+            <div className="overflow-hidden mb-4 flex flex-row">
+                <div className="visibility-hidden opacity-0 overflow-hidden w-[12rem] p-4 flex flex-col gap-1 border-solid border-2">
+                        
+                </div>
+            </div>
         </div>
     );
 }
